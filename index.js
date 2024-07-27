@@ -10,9 +10,14 @@ const io = new Server(server);
 
 //Socket.io Handling
 io.on("connection", (socket) => {
+  //   console.log(socket);
+    socket.broadcast.emit("user", "hi");
   socket.on("chat message", (msg) => {
-    io.emit("chat message", msg);
+    socket.broadcast.emit("chat message", msg);
   });
+    // socket.on("chat message", (msg) => {
+    //   io.emit("chat message", msg);
+    // });
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });

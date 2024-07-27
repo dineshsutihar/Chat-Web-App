@@ -55,9 +55,18 @@
       #messages > li:nth-child(odd) {
         background: #efefef;
       }
+      #self {
+        text-align: right;
+      }
+      h1 {
+        text-align: center;
+        padding: 10px;
+        border-bottom: 2px solid rgba(94, 92, 92, 0.664);
+      }
     </style>
   </head>
   <body>
+    <h1>Chat App</h1>
     <ul id="messages"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
@@ -68,10 +77,17 @@
       const socket = io();
       const form = document.getElementById("form");
       const input = document.getElementById("input");
+      const messages = document.getElementById("messages");
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (input.value) {
+          const item = document.createElement("li");
+          item.setAttribute("id", "self");
+          item.textContent = input.value;
+          messages.appendChild(item);
+          window.scrollTo(0, document.body.scrollHeight);
+
           socket.emit("chat message", input.value);
           input.value = "";
         }
