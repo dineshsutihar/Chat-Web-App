@@ -1,0 +1,19 @@
+{
+  "name": "chat-web-app",
+  "version": "1.0.0",
+  "description": "React for Frontend, Node for backend, MongoDB for database and SocketIO for Real-Time Communication.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
